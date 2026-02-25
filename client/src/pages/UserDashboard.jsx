@@ -45,7 +45,11 @@ export function UserDashboard() {
     setLoadingOrders(true)
     ordersApi
       .my()
-      .then(({ data }) => setMyOrders(data))
+      .then(({ data }) => {
+        // Filter out delivered orders from the dashboard
+        const activeOrders = data.filter(o => o.status !== 'delivered')
+        setMyOrders(activeOrders)
+      })
       .catch(() => setMyOrders([]))
       .finally(() => setLoadingOrders(false))
   }, [])

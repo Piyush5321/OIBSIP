@@ -39,6 +39,8 @@ export const orders = {
   my: () => api.get('/orders/my'),
   list: () => api.get('/orders'),
   updateStatus: (id, status) => api.patch(`/orders/${id}/status`, { status }),
+  myHistory: () => api.get('/orders/history/my'),
+  history: () => api.get('/orders/history'),
 }
 
 export const inventory = {

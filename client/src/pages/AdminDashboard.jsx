@@ -15,10 +15,12 @@ export function AdminDashboard() {
     setLoading(true)
     Promise.all([ordersApi.list(), inventoryApi.list()])
       .then(([ordersRes, invRes]) => {
-        setOrders(ordersRes.data)
+        // Filter out delivered orders from the main dashboard
+        const activeOrders = ordersRes.data.filter(o => o.status !== 'delivered')
+        setOrders(activeOrders)
         setInventory(invRes.data)
       })
-      .catch(() => {})
+      .catch(() => { })
       .finally(() => setLoading(false))
   }
 
@@ -29,8 +31,12 @@ export function AdminDashboard() {
   const updateOrderStatus = async (orderId, status) => {
     setUpdating(orderId)
     try {
-      await ordersApi.updateStatus(orderId, status)
+      console.log(`Updating order ${orderId} to status: ${status}`)
+      const res = await ordersApi.updateStatus(orderId, status)
+      console.log('Update response:', res)
       load()
+    } catch (error) {
+      console.error('Error updating order:', error)
     } finally {
       setUpdating(null)
     }
@@ -55,7 +61,7 @@ export function AdminDashboard() {
       <section className="section">
         <h2>Orders</h2>
         {orders.length === 0 ? (
-          <p className="muted">No orders.</p>
+          <p className="muted">No active orders.</p>
         ) : (
           <div className="orders-list admin-orders">
             {orders.map((o) => (

@@ -90,6 +90,7 @@ const updateOrderStatus = async (req, res, next) => {
     const { id } = req.params;
     const { status } = req.body;
 
+    console.log(`Updating order ${id} to status: ${status}`);
     const order = await Order.findByIdAndUpdate(
       id,
       { status },
@@ -97,10 +98,39 @@ const updateOrderStatus = async (req, res, next) => {
     );
 
     if (!order) {
+      console.log(`Order ${id} not found`);
       return res.status(404).json({ message: "Order not found" });
     }
 
+    console.log(`Order ${id} updated successfully to ${status}`);
+    console.log('Updated order:', order);
     res.json(order);
+  } catch (error) {
+    console.error('Error updating order:', error);
+    next(error);
+  }
+};
+
+const getOrderHistory = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    console.log('Fetching order history for user:', userId);
+    const orders = await Order.find({ user: userId, status: "delivered" }).sort({ createdAt: -1 });
+    console.log('Found delivered orders:', orders.length);
+    res.json(orders);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getAllOrderHistory = async (req, res, next) => {
+  try {
+    console.log('Fetching all order history');
+    const orders = await Order.find({ status: "delivered" })
+      .populate("user", "name email")
+      .sort({ createdAt: -1 });
+    console.log('Found delivered orders:', orders.length);
+    res.json(orders);
   } catch (error) {
     next(error);
   }
@@ -111,5 +141,7 @@ module.exports = {
   getMyOrders,
   getAllOrders,
   updateOrderStatus,
+  getOrderHistory,
+  getAllOrderHistory,
 };
 

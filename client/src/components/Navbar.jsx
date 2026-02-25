@@ -24,6 +24,7 @@ export function Navbar() {
               <Link to="/admin">Admin</Link>
             )}
             <Link to="/">Dashboard</Link>
+            <Link to="/order-history">Order History</Link>
             <button type="button" className="btn-logout" onClick={handleLogout}>
               Logout
             </button>

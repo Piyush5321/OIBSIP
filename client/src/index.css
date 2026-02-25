@@ -1,0 +1,105 @@
+/* ============================================
+   PizzaWizza – Global theme (yellow food-delivery)
+   ============================================ */
+
+:root {
+  /* Primary – warm pizza yellow */
+  --yellow-50: #FFFDE7;
+  --yellow-100: #FFF9C4;
+  --yellow-200: #FFF59D;
+  --yellow-300: #FFF176;
+  --yellow-400: #FFEE58;
+  --yellow-500: #FFEB3B;
+  --yellow-600: #FDD835;
+  --yellow-700: #F9A825;
+  --yellow-800: #F57F17;
+  --yellow-900: #F57F17;
+
+  --primary: #FFB800;
+  --primary-light: #FFD54F;
+  --primary-lighter: #FFE082;
+  --primary-dark: #E5A600;
+  --primary-darker: #B38600;
+
+  /* Accent – minimal red (offers, errors, CTA) */
+  --accent-red: #D32F2F;
+  --accent-red-light: #EF5350;
+  --accent-red-soft: rgba(211, 47, 47, 0.12);
+
+  /* Text – readable on yellow/light backgrounds */
+  --text-primary: #2C1810;
+  --text-secondary: #5D4E37;
+  --text-muted: #7D6E5C;
+  --text-on-primary: #2C1810;
+
+  /* Backgrounds */
+  --bg-main: #FFFBF5;
+  --bg-card: #FFFFFF;
+  --bg-input: #FFFFFF;
+  --bg-navbar: var(--primary);
+  --bg-navbar-text: var(--text-primary);
+
+  /* Surfaces */
+  --surface-1: #FFF8E7;
+  --surface-2: #FFFDE7;
+  --border: #FFE082;
+  --border-light: #FFF9C4;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(44, 24, 16, 0.08);
+  --shadow-md: 0 4px 12px rgba(44, 24, 16, 0.1);
+  --shadow-lg: 0 8px 24px rgba(44, 24, 16, 0.12);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--primary-dark);
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-darker);
+}
+
+button {
+  font-family: inherit;
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+input,
+select,
+button {
+  font-size: 1rem;
+}
+
+/* Global heading color */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}

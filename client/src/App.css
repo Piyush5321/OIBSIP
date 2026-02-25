@@ -1,0 +1,11 @@
+.loading {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.main {
+  min-height: calc(100vh - 56px);
+  background: var(--bg-main);
+  flex: 1;
+}

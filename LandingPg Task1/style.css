@@ -1,0 +1,178 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background: radial-gradient(circle at top,#0b0c2a,#02010f);
+color:white;
+}
+
+
+/* HERO */
+
+.hero{
+height:90vh;
+background:url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa") center/cover;
+display:flex;
+flex-direction:column;
+justify-content:center;
+padding:40px;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:80px;
+}
+
+.logo{
+font-size:24px;
+}
+
+.hero-content{
+max-width:600px;
+}
+
+.hero h1{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.hero p{
+margin-bottom:30px;
+color:#ddd;
+}
+
+
+/* BUTTONS */
+
+.btn-main{
+padding:15px 30px;
+background:#00e5ff;
+border:none;
+border-radius:30px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn{
+padding:10px 20px;
+background:#1de9b6;
+border:none;
+border-radius:20px;
+cursor:pointer;
+}
+
+.btn-main:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px #00e5ff;
+}
+
+
+/* FEATURES */
+
+.feature{
+display:flex;
+align-items:center;
+justify-content:center;
+padding:80px 10%;
+gap:50px;
+}
+
+.feature.reverse{
+flex-direction:row-reverse;
+}
+
+.feature-img{
+font-size:120px;
+}
+
+.feature-text{
+max-width:500px;
+}
+
+.feature-text h2{
+margin-bottom:15px;
+font-size:30px;
+}
+
+
+/* DEVICES */
+
+.devices{
+text-align:center;
+padding:80px 20px;
+}
+
+.devices h2{
+margin-bottom:30px;
+}
+
+.device-icons{
+display:flex;
+justify-content:center;
+gap:40px;
+font-size:40px;
+margin-bottom:30px;
+}
+
+
+/* BENEFITS */
+
+.benefits{
+display:flex;
+justify-content:center;
+gap:40px;
+padding:80px 10%;
+flex-wrap:wrap;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:10px;
+width:250px;
+text-align:center;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+background:rgba(255,255,255,0.1);
+}
+
+
+/* NETWORK */
+
+.network{
+text-align:center;
+padding:80px 20px;
+background:#0c0c30;
+}
+
+.stats{
+display:flex;
+justify-content:center;
+gap:80px;
+margin-top:40px;
+}
+
+.stats h1{
+font-size:50px;
+color:#00e5ff;
+}
+
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:20px;
+background:#000014;
+color:#aaa;
+}
